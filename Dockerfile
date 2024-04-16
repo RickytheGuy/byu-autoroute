@@ -6,8 +6,8 @@ WORKDIR /home/autoroute
 COPY . .
 
 # Change permissions
-RUN chmod +x /home/autoroute/exes/autoroute
-RUN chmod +x /home/autoroute/exes/FloodSpreader
+# RUN chmod +x /home/autoroute/exes/autoroute
+# RUN chmod +x /home/autoroute/exes/FloodSpreader
 
 # Install necessary packages
 RUN apt-get update && \
@@ -31,8 +31,8 @@ RUN conda config --add channels conda-forge && \
     conda create -y --name autoroute gdal=3.5.1
 
 # Activate the Conda environment
-RUN echo "alias autoroute='/home/autoroute/exes/autoroute'" >> ~/.bashrc
-RUN echo "alias floodspreader='/home/autoroute/exes/FloodSpreader'" >> ~/.bashrc
+# RUN echo "alias autoroute='/home/autoroute/exes/autoroute'" >> ~/.bashrc
+# RUN echo "alias floodspreader='/home/autoroute/exes/FloodSpreader'" >> ~/.bashrc
 RUN echo "conda activate autoroute" >> ~/.bashrc
 
 # Add environment variables for autoroute
