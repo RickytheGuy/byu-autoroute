@@ -34,9 +34,9 @@ RUN conda config --add channels conda-forge && \
 # RUN echo "alias autoroute='/home/autoroute/exes/autoroute'" >> ~/.bashrc
 # RUN echo "alias floodspreader='/home/autoroute/exes/FloodSpreader'" >> ~/.bashrc
 RUN echo "conda activate autoroute" >> ~/.bashrc \
-    && echo "export LD_LIBRARY_PATH=\$CONDA_PREFIX/lib:\$LD_LIBRARY_PATH" >> ~/.bashrc \
-    && echo "export PATH=\$CONDA_PREFIX/include:\$PATH" >> ~/.bashrc \
-    && echo "export PKG_CONFIG_PATH=\$CONDA_PREFIX/lib/pkgconfig:\$PKG_CONFIG_PATH" >> ~/.bashrc
+    && echo "export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH" >> ~/.bashrc \
+    && echo "export PATH=$CONDA_PREFIX/include:$PATH" >> ~/.bashrc \
+    && echo "export PKG_CONFIG_PATH=$CONDA_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH" >> ~/.bashrc
 
 # Add environment variables for autoroute
 # ENV LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH

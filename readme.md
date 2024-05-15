@@ -8,7 +8,8 @@ Run the following lines of code in your terminal:
 docker pull rickyrosas/byu-autoroute
 ```
 
-To run the container, run the code below. Replace `Path\to\your\folder` with the path to the directory on your machine that contains the AutoRoute executables and files you need to run and use
+To run the container, run the code below. Replace `Path\to\your\folder` with the path to the directory on your machine that contains the AutoRoute executables and files you need to want to run and use
+
 ```
-docker run -it -v Path\to\your\folder:/home/autoroute rickyrosas/byu-autoroute
+docker run --rm -it -v Path\to\your\folder:/home/autoroute --name autoroute rickyrosas/byu-autoroute
 ```
