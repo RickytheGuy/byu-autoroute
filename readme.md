@@ -1,14 +1,14 @@
 # byu-autoroute
 
-This is a docker container that is meant to make using the AutoRoute flood model easy, without having to install GDAL on your local machine.
+This is a docker container that is meant to make using the AutoRoute flood model easy, without having to install GDAL on your local machine. You will need the Linux-compiled versions of AutoRoute and FloodSpreader
 
 Run the following lines of code in your terminal:
 
 ```
-docker pull byu-autoroute
-docker cp /path/to/AutoRoute byu-autoroute:/home/autoroute/exes
-docker cp /path/to/FloodSpreader byu-autoroute:/home/autoroute/exes
+docker pull rickyrosas/byu-autoroute
 ```
-Note that you must copy your own linux copies of AutoRoute and FloodSpreader to the docker container.
 
-To use the container, you may run `docker run -it byu-autoroute`, and then you may use AutoRoute and FloodSpreader as you please.
+To run the container, run the code below. Replace `Path\to\your\folder` with the path to the directory on your machine that contains the AutoRoute executables and files you need to run and use
+```
+docker run -it -v Path\to\your\folder:/home/autoroute rickyrosas/byu-autoroute
+```
