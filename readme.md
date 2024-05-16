@@ -13,3 +13,8 @@ To run the container, run the code below. Replace `Path\to\your\folder` with the
 ```
 docker run --rm -it -v Path\to\your\folder:/home/autoroute --name autoroute rickyrosas/byu-autoroute
 ```
+
+You will need to update the permission of the AutoRoute and FloodSpreader files when you launch the Docker container like so:
+```
+chmod +x path/to/autoroute
+```

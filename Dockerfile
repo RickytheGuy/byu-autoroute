@@ -3,11 +3,6 @@ FROM --platform=linux/amd64 ubuntu:20.04
 
 # Set working directory, copy files
 WORKDIR /home/autoroute
-#COPY . .
-
-# Change permissions
-# RUN chmod +x /home/autoroute/exes/autoroute
-# RUN chmod +x /home/autoroute/exes/FloodSpreader
 
 # Install necessary packages
 RUN apt-get update && \
@@ -31,17 +26,9 @@ RUN conda config --add channels conda-forge && \
     conda create -y --name autoroute gdal=3.5.1
 
 # Activate the Conda environment
-# RUN echo "alias autoroute='/home/autoroute/exes/autoroute'" >> ~/.bashrc
-# RUN echo "alias floodspreader='/home/autoroute/exes/FloodSpreader'" >> ~/.bashrc
 RUN echo "conda activate autoroute" >> ~/.bashrc \
     && echo "export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH" >> ~/.bashrc \
     && echo "export PATH=$CONDA_PREFIX/include:$PATH" >> ~/.bashrc \
     && echo "export PKG_CONFIG_PATH=$CONDA_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH" >> ~/.bashrc
-
-# Add environment variables for autoroute
-# ENV LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
-# ENV PATH=$CONDA_PREFIX/include:$PATH
-# ENV PKG_CONFIG_PATH=$CONDA_PREFIX/lib/pkgconfig
-
 
 CMD ["/bin/bash"]
